@@ -1,0 +1,22 @@
+{% extends 'dash/base.html' %}
+
+{% block title %}Success!{% endblock %}
+
+{% block background-color %}bg-success{% endblock %}
+
+{% block main_spot %}
+<div class="position-absolute top-50 start-50 translate-middle p-4 text-center rounded border border-light border-3 text-white shadow-lg" style="width: 30rem;">
+	<div class="text-light">
+		<h1><strong>YESSSSS!!!</strong></h1>
+		<h4>What you did today:</h4>
+	</div>
+	<div>
+		<div class="my-3">
+			<h2 class="fw-bolder">{{ object.my_task }}</h2>
+		</div>
+		<h4>Good job! That was some awesome work!!</h4>
+		<button type="button" class="btn btn-outline-light btn-sm mt-3">Next Task</button>
+	</div>
+</div>
+{% endblock %}
+

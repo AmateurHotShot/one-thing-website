@@ -1,0 +1,26 @@
+{% extends 'dash/base.html' %}
+
+{% block title %}Dashboard!{% endblock %}
+
+{% block main_spot %}
+<div class="position-absolute top-50 start-50 translate-middle text-center p-4 rounded border border-light border-3 text-white shadow-lg" style="width: 30rem;">
+    <div class="">
+        <h1 class="display-1"><strong>One Thing</strong></h1>
+    </div>
+    <div>
+		<span class="text-secondary text-white"><h3>my name is {{ user_dude }}</h3></span>
+        <span class="text-secondary text-white"><h3>What I'm going to do today:</h3></span>
+	</div>
+	<div>
+		<div class="my-3">
+			<h2 class="fw-bolder">{{ my_task }}</h2>
+		</div>
+		<div class="btn-group btn-group-lg" role="group">
+			<button type="button" class="btn btn-success border border-3 border-white">I DID IT!</button>
+		</div>
+		<div>
+			<button type="button" class="btn btn-outline-light btn-sm mt-3">Change?</button>
+		</div>
+	</div>
+</div>
+{% endblock %}

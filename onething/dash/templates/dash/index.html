@@ -1,0 +1,21 @@
+{% extends 'dash/base.html' %}
+
+{% block title %}Dude!{% endblock %}
+
+{% block main_spot %}
+<div class="position-absolute top-50 start-50 translate-middle bg-light text-center pt-3 rounded shadow-lg" style="width: 30rem;">
+    <div class="">
+        <h1 class="display-1"><strong>One Thing</strong></h1>
+    </div>
+    <div>
+        <span class="text-secondary"><h3>My name is {{ user.username|default:'Guest' }}</h3></span>
+        <span class="text-secondary"><h3>What I'm going to do today:</h3></span>
+        <div>
+            <form action='' method="POST">{% csrf_token %}
+                {{task_form}}
+                <p class="d-grid my-0"><button type="submit" class="btn btn-danger btn-lg mt-0 rounded-0">Let's do it!</button></p>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
