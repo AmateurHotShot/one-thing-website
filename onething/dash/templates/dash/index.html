@@ -11,7 +11,8 @@
         <span class="text-secondary"><h3>My name is {{ user.username|default:'Guest' }}</h3></span>
         <span class="text-secondary"><h3>What I'm going to do today:</h3></span>
         <div>
-            <form action='' method="POST">{% csrf_token %}
+            <form method="POST">
+                {% csrf_token %}
                 {{task_form}}
                 <p class="d-grid my-0"><button type="submit" class="btn btn-danger btn-lg mt-0 rounded-0">Let's do it!</button></p>
             </form>

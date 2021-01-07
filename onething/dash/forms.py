@@ -15,3 +15,8 @@ class TaskForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Be a success', 'class': 'form-control form-control-lg text-center font-weight-bold border-0 rounded-0'})
         }
+
+class CompletedTheTask(forms.Form):
+    class Meta:
+        model = Task
+        fields = ()
