@@ -12,10 +12,13 @@
 	</div>
 	<div>
 		<div class="my-3">
-			<h2 class="fw-bolder">{{ object.my_task }}</h2>
+			<h2 class="fw-bolder">{{ completed_task }}</h2>
 		</div>
 		<h4>Good job! That was some awesome work!!</h4>
-		<button type="button" class="btn btn-outline-light btn-sm mt-3">Next Task</button>
+		<form action="" method="POST">
+			{% csrf_token %}
+			<button type="submit" name="next_task" class="btn btn-outline-light btn-sm mt-3">Next Task</button>
+		</form>
 	</div>
 </div>
 {% endblock %}

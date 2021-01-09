@@ -1,4 +1,5 @@
 from django import forms
+from django.forms import widgets
 from .models import Task
 from django.utils.translation import gettext_lazy as _
 
@@ -15,8 +16,3 @@ class TaskForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'placeholder': 'Be a success', 'class': 'form-control form-control-lg text-center font-weight-bold border-0 rounded-0'})
         }
-
-class CompletedTheTask(forms.Form):
-    class Meta:
-        model = Task
-        fields = ()

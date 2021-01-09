@@ -18,12 +18,15 @@
 		<div class="btn-group btn-group-lg" role="group">
 			<form action="" method="POST">
 				{% csrf_token %}
-				<input type="hidden" value="{{ task_id }}" id="task_id">
-				<button type="button" class="btn btn-success border border-3 border-white">I DID IT!</button>
+				<input type="hidden" value="{{ task_status }}" id="task_id">
+				<button type="submit" name="done_button" value="1" class="btn btn-success border border-3 border-white">I DID IT!</button>
 			</form>
 		</div>
 		<div>
-			<button type="button" class="btn btn-outline-light btn-sm mt-3">Change?</button>
+			<form action="" method="POST">
+				{% csrf_token %}
+				<button type="submit" name="next_task" class="btn btn-outline-light btn-sm mt-3">Change?</button>
+			</form>
 		</div>
 	</div>
 </div>
