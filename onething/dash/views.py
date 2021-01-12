@@ -11,14 +11,18 @@ from .forms import TaskForm
 def index(request):
     form = TaskForm()
     if request.method == 'POST':
-        form = TaskForm(request.POST)
-        if form.is_valid():
-            task = form.save(commit=False)
-            task.user = User.objects.get(username=request.user)
-            task.save()
-            return redirect('/dash/')
+        if request.user.is_authenticated:
+            form = TaskForm(request.POST)
+            if form.is_valid():
+                task = form.save(commit=False)
+                task.user = User.objects.get(username=request.user)
+                task.save()
+                return redirect('/dash/')
+            else:
+                form = TaskForm()
         else:
-            form = TaskForm()
+            return redirect(reverse("login"))
+
     context = {'task_form': form}
 
     return render(request, "dash/index.html", context)
@@ -32,7 +36,6 @@ def dashboard_page(request):
         task_id = current_task.pk
         task = {
         'my_task': current_task,
-        'user_dude': current_user,
         'task_id': task_id,
         'task_status': current_task.status,
         }
@@ -57,11 +60,9 @@ def dashboard_page(request):
             # set the status to complete
             # save the task
             # redirect the user back to the index
-
-
         return render(request, "dash/dashboard.html", task)
-    else:
-        return redirect('/login/')
+    #else:
+    #    return redirect('/login/')
     return
 
 
@@ -80,3 +81,10 @@ def success_page(request):
 
 def login_page(request):
     return render(request, 'dash/login.html')
+
+
+def logout_page(request):
+    return render(request, "<h1>Logout Page</h1>")
+
+def signup_page(request):
+    return render (request, '')
